@@ -17,7 +17,122 @@
       <a href="/page2.html">Other page</a>
     </nav>
     <main>
-      <h1>Home page</h1>
+      <form id="formularioMatriculacion" action="#" method="get">
+      
+      <!-- Nombre Completo -->
+      <label for="nombre">
+        Nombre y Apellido:
+      </label>
+      <input type="text" id="nombre" name="nombre" required /> 
+      <br /> <br />
+      
+      <!-- Fecha de nacimiento -->
+      <label for="fecha">
+        Fecha de nacimiento:
+      </label>
+      <input type="date" id="fecha" name="fecha" required />
+      <br /> <br />
+
+      <!-- Edad -->
+      <label for="edad">
+        Edad:
+      </label>
+      <input type="number" id="edad" name="edad" required />
+      <br /> <br />
+
+      <!-- Genero -->
+      <label for="genero">
+        Genero:
+      </label>
+      <select id="genero" name="genero" required>
+        <option value="">Elegir</option>
+        <option value="masculino">Masculino</option>
+        <option value="femenino">Femenino</option>
+        <option value="otro">Otro</option>
+      </select>
+      <br /><br />
+
+      <!-- Materia favorita -->
+      <label for="materia">
+        Materia favorita:
+      </label>
+      <select id="materia" name="materia" required>
+        <option value="Seleccione">Seleccione</option>
+        <option value="ingles">Ingles</option>
+        <option value="matematica">Matematica</option>
+        <option value="fisica">Fisica </option>
+        <option value="programacion">Programacion</option>
+      </select>
+      <br /> <br>
+
+      <!-- Habilidades -->
+      <label for="habilidades">
+        Habilidades:
+      </label>
+      <br>
+      <input type="checkbox" id="habilidad" name="habilidad1" value="inteligencia" > Inteligencia <br>
+      <input type="checkbox" id="habilidad" name="habilidad2" value="persistencia" > Persistencia <br>
+      <input type="checkbox" id="habilidad" name="habilidad3" value="creatividad" > Creatividad <br>
+      <input type="checkbox" id="habilidad" name="habilidad4" value="liderazgo" > Liderazgo <br>
+      <br /> 
+      
+      <!-- Nivel de interes -->
+      <label for="interes">
+        Nivel de interes:
+      </label>
+      <br>
+      <input type="radio" name="interes" id="interes" value="muy interesante"> Muy interesante <br>
+      <input type="radio" name="interes" id="interes" value="interesante"> Interesante <br>
+      <input type="radio" name="interes" id="interes" value="no tan Interesante"> No tan interesante <br>
+      <input type="radio" name="interes" id="interes" value="aburrida"> Aburrida <br>
+      <br />
+      <!-- Comentario -->
+      <label for="comentario">Comentario:</label><br />
+      <textarea
+        id="comentario"
+        name="comentario"
+        rows="4"
+        cols="40"
+        required>
+      </textarea>
+      <br /> 
+
+      <!-- Boton de Enviar -->
+      <button type="sumbit">Enviar</button>
+
+      <!-- Boton de mostrar datos -->
+      <button type="sumbit" onclick="controlarDatos"> Mostrar datos</button>    
+
+      </form>
     </main>
   </body>
+<script>
+function controlarDatos(){
+  var nombre = document.getElementById('nombre').value;
+  var fecha = document.getElementById('fecha').value;
+  var edad = document.getElementById('edad').value;
+  var genero = document.getElementById('genero').value;
+  var materia = document.getElementById('materia').value;
+  var habilidad = document.querySelectorAll('input[name="habilidad"]:checked');
+  var interes = document.querySelector('input[name="interes"]:checked').value;
+  var comentario = document.getElementById('comentario').value;
+
+  var mensaje = 'Nombre' + nombre + '\n';
+      mensaje += 'Fecha' + fecha + '\n';
+      mensaje += 'Edad' + edad + '\n';
+      mensaje += 'genero' + genero + '\n';
+      mensaje += 'materia' + materia + '\n';
+      mensaje += 'habilidad' + habilidad.forEach(function(habilidad){
+        mensaje += habilidad.value + ',';});
+      mensaje.slice(0,-2);
+      mensaje += '\n Interes' + interes + '\n';
+      mensaje += 'Comentario'+ comentario;
+      
+      alert(mensaje);
+  }
+      
+
+</script>  
+
+  
 </html>
