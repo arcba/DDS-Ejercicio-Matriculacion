@@ -1,23 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
   <head>
-    <title>Home</title>
+    <title>Formulario de Registro de Estudiantes</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
     <link rel="stylesheet" href="styles.css" />
     <script type="module" src="script.js"></script>
   </head>
+
+  <header>
+    <h1>Formulario de Registro de Estudiantes</h1>
+  </header>
+
   <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
-    <main>
-      <h1>Home page</h1>
-    </main>
+    <form action="procesar_registro.php" method="GET">
+      <label for="nombre">Nombre completo:</label>
+      <input type="text" id="nombre" name="nombre" required><br><br>
+
+      <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+      <input type="date" id="fecha_nacimiento" name="fecha_nacimiento" required><br><br>
+
+      <label for="edad">Edad:</label>
+      <input type="number" id="edad" name="edad" required><br><br>
+
+      <label>Género:</label>
+      <input type="radio" id="genero_masculino" name="genero" value="Masculino" required>
+      <label for="genero_masculino">Masculino</label>
+      <input type="radio" id="genero_femenino" name="genero" value="Femenino">
+      <label for="genero_femenino">Femenino</label>
+      <input type="radio" id="genero_otro" name="genero" value="Otro">
+      <label for="genero_otro">Otro</label><br><br>
+
+      <label for="materia_favorita">Materia favorita:</label>
+        <select id="materia_favorita" name="materia_favorita" required>
+          <option value="">Selecciona una opción</option>
+          <option value="Diseño de sisitemas de informacion">DSI</option>
+          <option value="Desarrollo de software">DDS</option>
+          <option value="Base de datos">BDA</option>
+          <option value="Legislacion">LEG</option>
+        </select><br><br>
+
+      <label>Habilidades:</label><br>
+      <input type="checkbox" id="habilidad1" name="habilidades[]" value="Programación">
+      <label for="habilidad1">BackEnd</label><br>
+      <input type="checkbox" id="habilidad2" name="habilidades[]" value="Diseño gráfico">
+      <label for="habilidad2">FrontEnd</label><br>
+      <input type="checkbox" id="habilidad3" name="habilidades[]" value="Escritura creativa">
+      <label for="habilidad3">FullStack</label><br><br>
+
+      <label for="nivel_interes">Nivel de interés:</label>
+      <input type="radio" id="interes_alto" name="nivel_interes" value="Alto" required>
+      <label for="interes_alto">Alto</label>
+      <input type="radio" id="interes_medio" name="nivel_interes" value="Medio">
+      <label for="interes_medio">Medio</label>
+      <input type="radio" id="interes_bajo" name="nivel_interes" value="Bajo">
+      <label for="interes_bajo">Bajo</label><br><br>
+
+      <label for="comentarios">Comentarios adicionales:</label><br>
+      <textarea id="comentarios" name="comentarios" rows="4" cols="50"></textarea><br><br>
+      <input type="submit" value="Enviar formulario">
+    </form>
+
   </body>
+  
 </html>
